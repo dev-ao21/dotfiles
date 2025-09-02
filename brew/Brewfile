@@ -1,3 +1,6 @@
+# symlink manager
+brew "stow"
+
 # Terminal
 cask "wezterm"
 cask "font-meslo-lg-nerd-font"
