@@ -1,0 +1,20 @@
+# Terminal
+cask "wezterm"
+cask "font-meslo-lg-nerd-font"
+brew "powerlevel10k"
+brew "tmux"
+brew "tree"
+brew "htop"
+brew "fzf"
+brew "zsh-autosuggestions"
+brew "zsh-syntax-highlighting"
+
+# Version managers
+brew "nvm"
+brew "sdkman/tap/sdkman-cli"
+
+# tools
+cask "lunar"
+cask "maccy"
+cask "rectangle"
+cask "visual-studio-code"
