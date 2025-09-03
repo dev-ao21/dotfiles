@@ -21,15 +21,7 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 export FZF_DEFAULT_OPTS_FILE=${HOME}/.config/fzf/fzf-default-opts.conf
 
 
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/abdo/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-
-
-######### aliases-start #########
-alias cl="claude"
-######### aliases-end #########
+source ~/.zsh_aliases
 
 #################################
 export NVM_DIR="$HOME/.nvm"
