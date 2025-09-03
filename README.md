@@ -8,15 +8,19 @@
 dotfiles/
 ├── home/                    # Files that must be in ~ 
 │   ├── .zshrc
-│   └── .gitconfig
-└── config/                  # XDG-compliant configs
-    └── .config/
-        ├── zsh/
-        ├── vim/
-        ├── tmux/
-        ├── wezterm/
-        ├── fzf/
-        └── ,,,
+│   ├── .gitconfig
+│   └── .p10k.zsh
+├── tmux/                    # Individual stow packages
+│   └── .config/tmux/
+├── fzf/
+│   └── .config/fzf/
+├── vim/
+│   └── .config/vim/
+├── wezterm/
+│   └── .config/wezterm/
+├── zsh/
+│   └── .config/zsh/
+└── ... (other apps)
 ```
 
 ## Setup

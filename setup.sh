@@ -2,6 +2,12 @@
 
 set -e
 
+# Configuration arrays for easy management
+# HOME_FILES: Files that will be symlinked to the home directory
+# CONFIG_APPS: Apps that will be symlinked to ~/.config/
+HOME_FILES=(.zshrc .gitconfig .p10k.zsh)
+CONFIG_APPS=(tmux fzf vim wezterm iterm2 rectangle zsh brew powerlevel10k)
+
 echo "🔧 Dotfiles Setup Script"
 echo "========================="
 echo
@@ -42,7 +48,7 @@ fi
 echo
 echo "📋 The following packages will be installed from Brewfile:"
 echo "--------------------------------------------------------"
-cat config/.config/brew/Brewfile | grep -E '^(brew|cask)' | sed 's/^/  /'
+cat brew/.config/brew/Brewfile | grep -E '^(brew|cask)' | sed 's/^/  /'
 echo
 
 read -p "Do you want to install these packages? (y/n/q): " -r
@@ -50,7 +56,7 @@ echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "📦 Installing packages..."
-    cd config/.config/brew
+    cd brew/.config/brew
     brew bundle install
     cd ../../..
     echo "✅ Package installation complete"
@@ -82,15 +88,44 @@ else
 fi
 
 echo
+echo "📦 Backing up existing configurations..."
+
+# Backup home directory files
+for file in "${HOME_FILES[@]}"; do
+    if [ -f "$HOME/$file" ]; then
+        echo "  Backing up ~/$file → ~/${file}.bak"
+        mv "$HOME/$file" "$HOME/${file}.bak"
+    fi
+done
+
+# Backup .config directories
+for app in "${CONFIG_APPS[@]}"; do
+    if [ -d "$HOME/.config/$app" ]; then
+        echo "  Backing up ~/.config/$app → ~/.config/${app}.bak"
+        mv "$HOME/.config/$app" "$HOME/.config/${app}.bak"
+    fi
+done
+
+echo
 echo "🔗 Installing dotfiles with stow..."
 if command -v stow &> /dev/null; then
+    echo "  Creating symlinks for dotfiles..."
+    
+    # Stow home directory files
     stow -v home
-    stow -v config
-    echo "✅ Dotfiles installed!"
+    
+    # Stow each app configuration
+    for app in "${CONFIG_APPS[@]}"; do
+        echo "  Linking $app configuration..."
+        stow -v $app
+    done
+    
+    echo "✅ All dotfiles installed!"
 else
     echo "⚠️  GNU Stow not found. Install with: brew install stow"
-    echo "Then run: stow home && stow config"
+    echo "Then run the individual stow commands or run this script again"
 fi
 
 echo
 echo "🎉 Setup complete!"
+echo "Your original configurations have been backed up with .bak extensions"
