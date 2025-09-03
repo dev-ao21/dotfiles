@@ -1,8 +1,15 @@
+# XDG Base Directory Support
+# macOS doesn't set these by default, but many CLI tools respect them
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export XDG_CACHE_HOME="$HOME/.cache"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ -r "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
@@ -18,14 +25,14 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS_FILE=${XDG_CONFIG_HOME:-$HOME/.config}/fzf/default-opts.conf
+export FZF_DEFAULT_OPTS_FILE=$XDG_CONFIG_HOME/fzf/default-opts.conf
 
 
 # Source aliases from XDG config location
-[[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases" ]] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases"
+[[ -f "$XDG_CONFIG_HOME/zsh/aliases" ]] && source "$XDG_CONFIG_HOME/zsh/aliases"
 
 # Vim XDG support
-export VIMINIT='source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc'
+export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
 #################################
 export NVM_DIR="$HOME/.nvm"
