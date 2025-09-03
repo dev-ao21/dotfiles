@@ -114,10 +114,10 @@ if command -v stow &> /dev/null; then
     # Stow home directory files
     stow -v home
     
-    # Stow each app configuration
+    # Stow each app configuration to ~/.config
     for app in "${CONFIG_APPS[@]}"; do
         echo "  Linking $app configuration..."
-        stow -v $app
+        stow -v -t ~/.config $app
     done
     
     echo "✅ All dotfiles installed!"
