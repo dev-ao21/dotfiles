@@ -1,6 +1,6 @@
 # Dotfiles
 
-XDG Base Directory compliant dotfiles managed with GNU Stow.
+ [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html) compliant dotfiles managed with GNU Stow.
 
 ## Structure
 
@@ -11,14 +11,12 @@ dotfiles/
 │   └── .gitconfig
 └── config/                  # XDG-compliant configs
     └── .config/
-        ├── brew/
         ├── zsh/
         ├── vim/
         ├── tmux/
         ├── wezterm/
         ├── fzf/
-        ├── iterm2/
-        └── rectangle/
+        └── ,,,
 ```
 
 ## Setup
@@ -33,10 +31,3 @@ dotfiles/
    ```bash
    ./setup.sh
    ```
-
-## XDG Compliance
-
-This setup follows the [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html):
-- Configuration files are stored in `~/.config/`
-- Only essential files remain in `~` (shell rc files, gitconfig)
-- Apps automatically find configs in XDG locations
