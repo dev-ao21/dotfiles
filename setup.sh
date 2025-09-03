@@ -121,6 +121,15 @@ if command -v stow &> /dev/null; then
     done
     
     echo "✅ All dotfiles installed!"
+    
+    # Source tmux config if tmux is running
+    echo "🔄 Reloading tmux configuration..."
+    if command -v tmux &> /dev/null && tmux list-sessions &> /dev/null; then
+        tmux source-file ~/.config/tmux/tmux.conf
+        echo "✅ Tmux configuration reloaded!"
+    else
+        echo "ℹ️  Tmux not running - config will load on next tmux session"
+    fi
 else
     echo "⚠️  GNU Stow not found. Install with: brew install stow"
     echo "Then run the individual stow commands or run this script again"
