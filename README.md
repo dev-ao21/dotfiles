@@ -9,6 +9,5 @@
 
 2. Run the setup script:
    ```bash
-   cd ~/.config/dotfiles
-   ./setup.sh
+   sh ~/.config/dotfiles/setup.sh
    ```
