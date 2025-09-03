@@ -1,9 +1,28 @@
-# temp files directories
+# macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Temp files and directories
 cache/
 log/
-*.swp
-.DS_Store
+tmp/
 
-# editor configs
-.vscode
-.idea
+# Editor configs
+.vscode/
+.idea/
+
+# Stow conflicts
+.stow-local-ignore
+
+# Backup files
+*.bak
+*.backup
+*~

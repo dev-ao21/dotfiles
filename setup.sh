@@ -42,7 +42,7 @@ fi
 echo
 echo "📋 The following packages will be installed from Brewfile:"
 echo "--------------------------------------------------------"
-cat brew/Brewfile | grep -E '^(brew|cask)' | sed 's/^/  /'
+cat config/.config/brew/Brewfile | grep -E '^(brew|cask)' | sed 's/^/  /'
 echo
 
 read -p "Do you want to install these packages? (y/n/q): " -r
@@ -50,9 +50,9 @@ echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "📦 Installing packages..."
-    cd brew
+    cd config/.config/brew
     brew bundle install
-    cd ..
+    cd ../../..
     echo "✅ Package installation complete"
 elif [[ $REPLY =~ ^[Qq]$ ]]; then
     echo "👋 Setup cancelled by user"
@@ -82,5 +82,15 @@ else
 fi
 
 echo
+echo "🔗 Installing dotfiles with stow..."
+if command -v stow &> /dev/null; then
+    stow -v home
+    stow -v config
+    echo "✅ Dotfiles installed!"
+else
+    echo "⚠️  GNU Stow not found. Install with: brew install stow"
+    echo "Then run: stow home && stow config"
+fi
+
+echo
 echo "🎉 Setup complete!"
-echo "More configuration steps will be added soon..."

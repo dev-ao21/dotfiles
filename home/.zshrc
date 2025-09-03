@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
@@ -18,10 +18,14 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_OPTS_FILE=${HOME}/.config/fzf/fzf-default-opts.conf
+export FZF_DEFAULT_OPTS_FILE=${XDG_CONFIG_HOME:-$HOME/.config}/fzf/default-opts.conf
 
 
-source ~/.zsh_aliases
+# Source aliases from XDG config location
+[[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases" ]] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases"
+
+# Vim XDG support
+export VIMINIT='source ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc'
 
 #################################
 export NVM_DIR="$HOME/.nvm"
