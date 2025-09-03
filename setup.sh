@@ -48,7 +48,7 @@ fi
 echo
 echo "📋 The following packages will be installed from Brewfile:"
 echo "--------------------------------------------------------"
-cat brew/.config/brew/Brewfile | grep -E '^(brew|cask)' | sed 's/^/  /'
+cat brew/Brewfile | grep -E '^(brew|cask)' | sed 's/^/  /'
 echo
 
 read -p "Do you want to install these packages? (y/n/q): " -r
@@ -56,9 +56,9 @@ echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "📦 Installing packages..."
-    cd brew/.config/brew
+    cd brew
     brew bundle install
-    cd ../../..
+    cd ..
     echo "✅ Package installation complete"
 elif [[ $REPLY =~ ^[Qq]$ ]]; then
     echo "👋 Setup cancelled by user"
