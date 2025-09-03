@@ -112,13 +112,9 @@ if command -v stow &> /dev/null; then
     echo "  Creating symlinks for dotfiles..."
     
     # Stow home directory files
-    stow -v home
-    
-    # Stow each app configuration to ~/.config
-    for app in "${CONFIG_APPS[@]}"; do
-        echo "  Linking $app configuration..."
-        stow -v -t ~/.config $app
-    done
+    stow -t $HOME home
+
+    stow -t ~/.config config
     
     echo "✅ All dotfiles installed!"
     

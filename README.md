@@ -41,11 +41,10 @@ dotfiles/
 ## Manual Stow Commands
 
 If you need to manage dotfiles manually:
-- `stow home` - Install home directory files
-- `stow -t ~/.config tmux` - Install tmux configuration
-- `stow -t ~/.config vim` - Install vim configuration
-- `stow -D home` - Remove home directory symlinks
-- `stow -D -t ~/.config <app>` - Remove specific app symlinks
+- `stow -t $HOME home` - Install home directory files
+- `stow -t ~/.config config` - Install app configs
+- `stow -t $HOME home` - Remove home directory symlinks
+- `stow -D -t ~/.config config` - Remove apps symlinks
 
 **Backup & Safety:**
 - Original configs are automatically backed up with `.bak` extensions
