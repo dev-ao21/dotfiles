@@ -90,14 +90,6 @@ fi
 echo
 echo "📦 Backing up existing configurations..."
 
-# Backup home directory files
-for file in "${HOME_FILES[@]}"; do
-    if [ -f "$HOME/$file" ]; then
-        echo "  Backing up ~/$file → ~/${file}.bak"
-        mv "$HOME/$file" "$HOME/${file}.bak"
-    fi
-done
-
 # Backup .config directories
 for app in "${CONFIG_APPS[@]}"; do
     if [ -d "$HOME/.config/$app" ]; then
@@ -111,12 +103,43 @@ echo "🔗 Installing dotfiles with stow..."
 if command -v stow &> /dev/null; then
     echo "  Creating symlinks for dotfiles..."
     
-    # Stow home directory files
-    stow -t $HOME home
-
     stow -t ~/.config config
     
     echo "✅ All dotfiles installed!"
+    
+    # Configure .zshrc to source our dotfiles
+    echo "🔧 Configuring ~/.zshrc..."
+    ZSHRC_CONTENT=$(cat <<'EOF'
+# Shared dotfiles configuration
+source ~/.config/zsh/zshrc_base
+
+############################
+# Local machine-specific configuration below
+
+EOF
+)
+    
+    if [[ -f "$HOME/.zshrc" ]]; then
+        # Check if our source line is already present
+        if ! grep -q "source ~/.config/zsh/zshrc_base" "$HOME/.zshrc"; then
+            echo "  Backing up existing ~/.zshrc to ~/.zshrc.bak"
+            cp "$HOME/.zshrc" "$HOME/.zshrc.bak"
+            
+            # Create new .zshrc with our header and existing content
+            echo "$ZSHRC_CONTENT" > "$HOME/.zshrc.new"
+            
+            # Append existing content, skipping any duplicate source lines
+            grep -v "source ~/.config/zsh/zshrc_base" "$HOME/.zshrc.bak" >> "$HOME/.zshrc.new"
+            
+            mv "$HOME/.zshrc.new" "$HOME/.zshrc"
+            echo "  ✅ Updated ~/.zshrc (original backed up)"
+        else
+            echo "  ✅ ~/.zshrc already configured correctly"
+        fi
+    else
+        echo "$ZSHRC_CONTENT" > "$HOME/.zshrc"
+        echo "  ✅ Created ~/.zshrc"
+    fi
     
     # Source tmux config if tmux is running
     echo "🔄 Reloading tmux configuration..."
