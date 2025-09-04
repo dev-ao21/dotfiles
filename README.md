@@ -18,14 +18,11 @@
 ## Manual Stow Commands
 
 If you need to manage dotfiles manually:
-- `stow -t $HOME home` - Install home directory files
-- `stow -t ~/.config config` - Install app configs
-- `stow -D -t $HOME home` - Remove home directory symlinks
-- `stow -D -t ~/.config config` - Remove apps symlinks
+- `cd ~/.config/dotfiles && stow config` - Install app configs
+- `cd ~/.config/dotfiles && stow -D config` - Remove apps symlinks
 
 **Backup & Safety:**
-- Original configs are automatically backed up with `.bak` extensions
-- To restore: `mv ~/.zshrc.bak ~/.zshrc` (example)
+- Original configs that are found in `~/.config` are automatically backed up with `.bak` extensions
 
 ## XDG Compliance
 

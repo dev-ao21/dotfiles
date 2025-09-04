@@ -56,9 +56,9 @@ echo
 
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo "📦 Installing packages..."
-    cd brew
+    cd config/brew
     brew bundle install
-    cd ..
+    cd ../..
     echo "✅ Package installation complete"
 elif [[ $REPLY =~ ^[Qq]$ ]]; then
     echo "👋 Setup cancelled by user"
@@ -103,7 +103,7 @@ echo "🔗 Installing dotfiles with stow..."
 if command -v stow &> /dev/null; then
     echo "  Creating symlinks for dotfiles..."
 
-    stow -t ~/.config --ignore=.DS_Store .
+    stow config
 
     echo "✅ All dotfiles installed!"
     
