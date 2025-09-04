@@ -12,6 +12,9 @@ if [[ -r "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "$XDG_CACHE_HOME/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# Source aliases from XDG config location
+[[ -f "$XDG_CONFIG_HOME/zsh/aliases" ]] && source "$XDG_CONFIG_HOME/zsh/aliases"
+
 source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f "$XDG_CONFIG_HOME/powerlevel10k/p10k.zsh" ]] || source "$XDG_CONFIG_HOME/powerlevel10k/p10k.zsh"
@@ -23,18 +26,14 @@ eval "$(brew shellenv)" # to load brew auto completions
 # Plugins
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# FZF
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
 export FZF_DEFAULT_OPTS_FILE=$XDG_CONFIG_HOME/fzf/default-opts.conf
-
-
-# Source aliases from XDG config location
-[[ -f "$XDG_CONFIG_HOME/zsh/aliases" ]] && source "$XDG_CONFIG_HOME/zsh/aliases"
 
 # Vim XDG support
 export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
-#################################
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
