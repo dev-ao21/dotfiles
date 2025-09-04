@@ -14,7 +14,6 @@ brew "zsh-syntax-highlighting"
 
 # Version managers
 brew "nvm"
-brew "sdkman/tap/sdkman-cli"
 
 # tools
 cask "lunar"
