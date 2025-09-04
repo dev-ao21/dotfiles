@@ -26,3 +26,12 @@ tmp/
 *.bak
 *.backup
 *~
+
+# local files
+.env
+.local
+.local.*
+
+# history files
+*_history
+*_history.*
