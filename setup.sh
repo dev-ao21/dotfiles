@@ -102,9 +102,9 @@ echo
 echo "🔗 Installing dotfiles with stow..."
 if command -v stow &> /dev/null; then
     echo "  Creating symlinks for dotfiles..."
-    
-    stow -t ~/.config config
-    
+
+    stow -t ~/.config --ignore=.DS_Store .
+
     echo "✅ All dotfiles installed!"
     
     # Configure .zshrc to source our dotfiles
