@@ -6,7 +6,7 @@ set -e
 # HOME_FILES: Files that will be symlinked to the home directory
 # CONFIG_APPS: Apps that will be symlinked to ~/.config/
 HOME_FILES=(.zshrc .gitconfig .p10k.zsh)
-CONFIG_APPS=(tmux fzf vim wezterm iterm2 rectangle zsh brew)
+CONFIG_APPS=(tmux fzf vim wezterm iterm2 rectangle zsh brew karabiner)
 
 echo "🔧 Dotfiles Setup Script"
 echo "========================="
