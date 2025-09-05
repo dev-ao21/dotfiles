@@ -1,5 +1,3 @@
-inoremap kj <Esc>
-
 syntax on
 set number
 set relativenumber
