@@ -35,3 +35,5 @@ tmp/
 # history files
 *_history
 *_history.*
+
+**/tmux/plugins
