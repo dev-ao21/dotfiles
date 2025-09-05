@@ -2,13 +2,14 @@
 brew "stow"
 
 # Terminal
+brew "tree"
+brew "bat"
+brew "tmux"
+brew "tpm"
+brew "htop"
 cask "wezterm"
 cask "font-meslo-lg-nerd-font"
 brew "powerlevel10k"
-brew "tmux"
-brew "tpm"
-brew "tree"
-brew "htop"
 brew "fzf"
 brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
