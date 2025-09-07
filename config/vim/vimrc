@@ -13,3 +13,5 @@ set ignorecase
 set smartcase
 
 set confirm
+
+set laststatus=2
