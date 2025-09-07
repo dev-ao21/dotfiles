@@ -15,3 +15,5 @@ set smartcase
 set confirm
 
 set laststatus=2
+
+set clipboard=unnamed
