@@ -20,8 +20,6 @@ brew "tree"
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
-# Font for terminal
-cask "font-meslo-lg-nerd-font"
 # Web browser
 cask "google-chrome"
 # Keyboard customiser
