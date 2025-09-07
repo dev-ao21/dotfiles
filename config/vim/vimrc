@@ -1,4 +1,15 @@
 syntax on
+
 set number
 set relativenumber
-set numberwidth=3
+set numberwidth=4
+
+set autoindent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+
+set ignorecase
+set smartcase
+
+set confirm
