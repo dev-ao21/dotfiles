@@ -1,29 +1,34 @@
-# Clone of cat(1) with syntax highlighting and Git integration
-brew "bat"
-# Command-line fuzzy finder written in Go
-brew "fzf"
-# Improved top (interactive process viewer)
-brew "htop"
-# Manage multiple Node.js versions
-brew "nvm"
-# Theme for zsh
-brew "powerlevel10k"
-# Organize software neatly under a single directory tree (e.g. /usr/local)
+# symlink manager
 brew "stow"
+# Keyboard customiser
+cask "karabiner-elements"
+
+# Terminal emulator and multiplexer
+cask "wezterm"
 # Terminal multiplexer
 brew "tmux"
 # Plugin manager for tmux
 brew "tpm"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Improved top (interactive process viewer)
+brew "htop"
+# Theme for zsh
+brew "powerlevel10k"
 # Fish-like fast/unobtrusive autosuggestions for zsh
 brew "zsh-autosuggestions"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+
+# Optional
 # Web browser
 cask "google-chrome"
-# Keyboard customiser
-cask "karabiner-elements"
 # Adaptive brightness for external displays
 cask "lunar"
 # Clipboard manager
@@ -32,5 +37,3 @@ cask "maccy"
 cask "rectangle"
 # Open-source code editor
 cask "visual-studio-code"
-# GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
