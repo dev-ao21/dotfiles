@@ -34,8 +34,8 @@ source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source <(fzf --zsh)
 export FZF_DEFAULT_OPTS_FILE=$XDG_CONFIG_HOME/fzf/default-opts.conf
 
-# Vim XDG support
-export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
+# Vim XDG support (not needed since we use neovim)
+# export VIMINIT="source $XDG_CONFIG_HOME/vim/vimrc"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
