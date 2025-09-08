@@ -25,6 +25,10 @@ brew "zsh-autosuggestions"
 brew "zsh-syntax-highlighting"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Search tool like grep and The Silver Searcher (required by layzvim)
+brew "ripgrep"
+# Simple, fast and user-friendly alternative to find (required by layzvim)
+brew "fd"
 
 # Optional
 # Web browser
