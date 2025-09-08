@@ -29,6 +29,8 @@ brew "neovim"
 brew "ripgrep"
 # Simple, fast and user-friendly alternative to find (required by layzvim)
 brew "fd"
+# Simple terminal UI for git commands (works well with layzvim)
+brew "lazygit"
 
 # Optional
 # Web browser
