@@ -7,8 +7,8 @@ cask "karabiner-elements"
 cask "wezterm"
 # Terminal multiplexer
 brew "tmux"
-# Plugin manager for tmux
-brew "tpm"
+# Manage Tmux sessions
+brew "tmuxinator"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Display directories as trees (with optional color/HTML output)
