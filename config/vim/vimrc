@@ -1,19 +1,20 @@
-syntax on
+syntax on              " enable syntax highlighting
 
-set number
-set relativenumber
-set numberwidth=4
+set number             " show absolute line numbers
+set relativenumber     " show relative line numbers
+set numberwidth=4      " set width of line number column
 
-set autoindent
-set expandtab
-set tabstop=2
-set shiftwidth=2
+set autoindent         " auto-indent new lines
+set expandtab          " use spaces instead of tabs
+set tabstop=2          " number of spaces per tab
+set shiftwidth=2       " number of spaces for indentation
 
-set ignorecase
-set smartcase
+set ignorecase         " ignore case in search
+set smartcase          " override ignorecase if search has uppercase
 
-set confirm
+set confirm            " confirm before closing unsaved files
 
-set laststatus=2
+set laststatus=2       " always show status line
 
-set clipboard=unnamed
+set clipboard=unnamed  " use unnamed register for system clipboard
+
