@@ -155,7 +155,7 @@ EOF
   # linking .ideavim at HOME dir
   if [[ -f "$HOME/.ideavim" ]]; then
     # if .ideavim already exists, remove it because we wanna symlink it
-    rm "$HOME/.ideavim"
+    rm "$HOME/.ideavimrc"
   fi
 
   cd config
