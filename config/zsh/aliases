@@ -1,22 +1,8 @@
-# Git
-alias gadd='git add'
-alias gst="git status"
-alias gc="git commit -m"
-alias gp="git push origin HEAD"
-alias gpu="git pull origin"
-
-# Claude
-alias cl="claude" # Open Claude interactive mode
-alias clp="claude --print" # prints the response to the terminal
-
 # ls
 alias l="ls --color=auto"
+alias ls="ls --color=auto"
 alias la="ls -a --color=auto"
 alias ll="ls -lah --color=auto"
-
-# Dirs
-alias ..="cd .."
-alias ...="cd ../.."
 
 # cat
 alias cat="bat --paging=never"
